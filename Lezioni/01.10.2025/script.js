@@ -1,0 +1,1 @@
+var Temperatura = 32;
