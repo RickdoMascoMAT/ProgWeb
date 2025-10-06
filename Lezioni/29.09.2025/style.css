@@ -1,0 +1,39 @@
+body {
+    background-color: teal;
+}
+
+h1 {
+    color: whitesmoke;
+}
+
+p {
+    color: whitesmoke;
+}
+
+#par_lorem {
+    color: wheat;
+    text-decoration: underline;
+}
+
+.TxtRed {
+    color: red;
+}
+
+.Underline {
+    text-decoration: underline;
+}
+
+ol {
+    color: whitesmoke;
+}
+ol[reversed]{
+    color: yellow;
+}
+
+ul{
+    color: whitesmoke;    
+}
+
+p:hover{
+    color: purple;  
+}
