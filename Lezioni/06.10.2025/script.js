@@ -173,11 +173,16 @@ automobile["4x4"] = true;
 automobile["rimorchio"] = null;
 automobile["ruotadiscorta"] = NaN;
 
+delete automobile["km/l"];
+
+automobile["kml/l"] = 1.6;
+
 console.log("table:");
 console.table(automobile);
 console.log("table:");
 console.log(automobile);
 console.log("dir:");
-console.dir(automobile, {depth: Infinity})
+console.dir(automobile, {depth: Infinity});
+
 //---------------------------------------------------------------------//
 console.log(`-------------------------------`);
