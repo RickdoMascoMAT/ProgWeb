@@ -57,3 +57,12 @@ let auto2 = new auto("Fiat","punto",2023);
 
 console.table(auto1);
 console.table(auto2);
+
+let temp = Object.create({});
+console.log(temp);
+
+let auto3 = Object.create(auto2);
+console.log(auto3);
+
+console.log("key: ", Object.keys(auto1));
+console.log("values: ", Object.values(auto1));
