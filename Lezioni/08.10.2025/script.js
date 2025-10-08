@@ -66,3 +66,32 @@ console.log(auto3);
 
 console.log("key: ", Object.keys(auto1));
 console.log("values: ", Object.values(auto1));
+
+//---------------------------------------------------------------------//
+console.log(`-------------------------------`);
+console.log(`errori`);
+
+try{
+    let error = new Error("Boom");
+    typeError = new TypeError("Type Boom!!")
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+    console.log("Va tutto bene!");
+
+    throw error;
+    throw typeError;
+} catch (e){
+    console.error(`[Error] -> ${e.message}`)
+    console.log(`ERRORE: ${e.message}`)
+    console.table({
+            name: e.name,
+            message: e.message,
+            instanceof: e instanceof TypeError
+        }
+    )
+} finally {
+    console.warn("Cleanup")
+}
+
+console.log(`FINITO`)
