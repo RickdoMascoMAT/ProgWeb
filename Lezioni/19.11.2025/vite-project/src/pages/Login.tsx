@@ -1,16 +1,31 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
+export interface ILoginNavigateState {
+    username: string;
+}
+
 export default function Login() {
     const [username, setUsername] = useState<string>("");
+    const [error, setError] = useState<string>("");
     const navigate = useNavigate();
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         console.log("submit");
 
+        const stateObj: ILoginNavigateState = {
+            username: username
+        }
+
+        if (!username.trim()) {
+            setError("Compila la casella di login");
+            return;
+        }
+
+        setError("");
         navigate(`/dashboard`,{
-            state: { username: username }
+            state: stateObj
         });
     }
 
@@ -21,10 +36,13 @@ export default function Login() {
                 type="text"
                 placeholder="Username"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => {
+                    setUsername(e.target.value)
+                    if (error) setError("");
+                }}
             />
-            <button type="submit">Login</button>
-            <p>username: {username}</p>
+            {error && <p style={{ color: "red", marginTop: 8 }}>{error}</p>}
+            <button type="submit" disabled={!username.trim()}>Login</button>
         </form>
     )
 }
