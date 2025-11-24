@@ -4,20 +4,23 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 import Login from "./pages/Login.tsx";
+import PostList from "./pages/PostList.tsx";
 
 export default function App() {
     return (
         <BrowserRouter>
             <nav>
                 <Link to="/">Home</Link> |{' '}
+                <Link to="/login">Login</Link> |{' '}
                 <Link to="/dashboard">Dashboard</Link> |{' '}
-                <Link to="/login">Login</Link>
+                <Link to="/PostList">PostList</Link>
             </nav>
 
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/dashboard" element={<Dashboard/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path="/PostList" element={<PostList/>}/>
                 {/* fallback 404 route */}
                 <Route path="*" element={<NotFound/>}/>
             </Routes>
