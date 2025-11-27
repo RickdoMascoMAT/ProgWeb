@@ -1,5 +1,5 @@
 import useFetch from "../core/hook/useFetch.ts";
-import type { TPosts } from "../core/models/Post.ts";
+import type {IPost, TPosts} from "../core/models/Post.ts";
 import type {TUtenti, IUtente} from "../core/models/TUtenti.ts";
 
 export default function ListaUtenti(){
@@ -17,7 +17,8 @@ export default function ListaUtenti(){
                 {dataU && dataU.map((u: IUtente)=>{
                     return (
                         <li key={u.id}>
-                            {u.id}: {u.name};
+                            {u.id}: {u.name} - {
+                            dataP ? dataP.filter((p: IPost)=>p.userId === u.id).length : 0 };
                         </li>
                     )
                 })}

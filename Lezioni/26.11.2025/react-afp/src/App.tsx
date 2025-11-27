@@ -7,11 +7,18 @@ import Profile from "./pages/Profile.tsx";
 import PageNotFound from "./pages/PageNotFound.tsx";
 import PostList from "./pages/PostList.tsx";
 import ListaUtenti from "./pages/ListaUtenti.tsx";
+import PhotoList from "./pages/PhotoList.tsx";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+
+const client = new QueryClient();
+
 
 function App(){
 
   return (
       <>
+          <QueryClientProvider client={client}>
+
           <BrowserRouter>
               <nav>
                   <Link to='/home'>Home</Link>
@@ -21,6 +28,7 @@ function App(){
                   <Link to='/profile/pietro'>Pit</Link>
                   <Link to='/posts'>Posts</Link>
                   <Link to='/ListaUtenti'>ListaUtenti</Link>
+                  <Link to='/PhotoList'>PhotoList</Link>
               </nav>
 
               <Routes>
@@ -31,9 +39,12 @@ function App(){
                   <Route path='/profile/:userName' element={<Profile/>} />
                   <Route path='/posts' element={<PostList/>} />
                   <Route path='/ListaUtenti' element={<ListaUtenti/>} />
+                  <Route path='/PhotoList' element={<PhotoList/>} />
                   <Route path='/*' element={<PageNotFound/>} />
               </Routes>
           </BrowserRouter>
+
+          </QueryClientProvider>
       </>
   );
 }
